@@ -1,25 +1,25 @@
-import { Authorized } from "./views/Authorized"
-import { ApplicationViews } from "./views/ApplicationViews"
+import { useState } from "react"
 import { NavBar } from "./nav/NavBar"
-import { Login } from "./auth/Login"
-import { Register } from "./auth/Register"
-import "./MeetMe.css"
-import { Route, Routes } from "react-router-dom"
-
+import { ApplicationViews } from "./views/ApplicationViews"
 
 export const MeetMe = () => {
-	return <Routes>
-		<Route path="/login" element={<Login />} />
-		<Route path="/register" element={<Register />} />
+  const [token, setTokenState] = useState(localStorage.getItem('mm_token'))
+  const [userId, setUserIdState] = useState(localStorage.getItem('mm_id'))
 
-		<Route path="*" element={
-			<Authorized>
-				<>
-					<NavBar />
-					<ApplicationViews />
-				</>
-			</Authorized>
-		} />
-	</Routes>
+  const setToken = (newToken) => {
+    localStorage.setItem('mm_token', newToken)
+    setTokenState(newToken)
+  }
+
+  const setUserId = (userId) => {
+    localStorage.setItem('mm_id', userId)
+    setUserIdState(userId)
+  }
+
+
+
+  return <>
+    <NavBar token={token} setToken={setToken} />
+    <ApplicationViews token={token} setToken={setToken} setUserId={setUserId} userId={userId}/>
+  </>
 }
-
