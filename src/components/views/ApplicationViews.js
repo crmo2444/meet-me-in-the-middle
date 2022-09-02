@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { Login } from "../auth/Login"
 import { Register } from "../auth/Register"
-import { Test } from "../test"
+import { MapHome } from "../map/MapHome"
 import { Authorized } from "./Authorized"
 
 export const ApplicationViews = ({ token, setToken, setUserId, userId }) => {
@@ -11,7 +11,7 @@ export const ApplicationViews = ({ token, setToken, setUserId, userId }) => {
     <Route path="/register" element={<Register setToken={setToken} setUserId={setUserId} />} />
     <Route element={<Authorized token={token}/>}>
       {/* Add Routes here */}
-      <Route path="" element={<Test />} />
+      <Route path="" element={<MapHome />} />
     </Route>
   </Routes>
 }

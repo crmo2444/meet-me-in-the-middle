@@ -8,15 +8,15 @@ const toDegrees = (x) => {
     var pi = Math.PI;
     return x * (180/pi)
 }
-const midpointTo = (point1, point2) => {
+export const midpointTo = (point1, point2) => {
     // φm = atan2( sinφ1 + sinφ2, √( (cosφ1 + cosφ2⋅cosΔλ)² + cos²φ2⋅sin²Δλ ) )
     // λm = λ1 + atan2(cosφ2⋅sinΔλ, cosφ1 + cosφ2⋅cosΔλ)
     // midpoint2 is sum of vectors to two point2s: mathforum.org/library/drmath/view/51822.html
 
     const φ1 = toRadians(point1.lat)
-    const λ1 = toRadians(point1.lon)
+    const λ1 = toRadians(point1.lng)
     const φ2 = toRadians(point2.lat);
-    const Δλ = toRadians(point2.lon-point1.lon);
+    const Δλ = toRadians(point2.lng-point1.lng);
 
     // get cartesian coordinates for the two point2s
     const A = { x: Math.cos(φ1), y: 0, z: Math.sin(φ1) }; // place point2 A on prime meridian y=0
@@ -29,11 +29,11 @@ const midpointTo = (point1, point2) => {
     const λm = λ1 + Math.atan2(C.y, C.x);
 
     const lat = toDegrees(φm);
-    const lon = toDegrees(λm);
+    const lng = toDegrees(λm);
 
     const midpoint = {
-        latitude: lat,
-        longitude: lon
+        lat: lat,
+        lng: lng
     }
 
     return midpoint
@@ -41,12 +41,12 @@ const midpointTo = (point1, point2) => {
 
 let pointA = {
     lat: 36,
-    lon: -40
+    lng: -40
 }
 
 let pointB = {
     lat: -60,
-    lon: 25
+    lng: 25
 }
 
 console.log(midpointTo(pointA, pointB))
