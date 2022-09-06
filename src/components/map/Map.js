@@ -1,5 +1,6 @@
 import { GoogleMap, Marker } from "@react-google-maps/api"
 import { useEffect, useState } from "react"
+import { NearbySearch } from "./NearbySearch"
 
 export const Map = ({center, markerOne, markerTwo}) => {
     const [zoom, setZoom] = useState(5)
