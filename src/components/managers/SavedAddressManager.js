@@ -34,3 +34,15 @@ export const getCurrentUsersSavedAddresses = () => {
     })
       .then(res => res.json())
   }
+
+export const updateAddress = (id, newName) => {
+    return fetch(`http://localhost:8000/saved_address/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': `Token ${localStorage.getItem('mm_token')}`
+      },
+      body: JSON.stringify(newName)
+    })
+  }
+  
