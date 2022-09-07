@@ -1,16 +1,16 @@
-export const createSavedResultLocation = (location) => {
-    return fetch("http://localhost:8000/saved_result_locations", {
+export const createSavedAddress = (address) => {
+    return fetch("http://localhost:8000/saved_address", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         'Authorization': `Token ${localStorage.getItem('mm_token')}`
       },
-      body: JSON.stringify(location)
+      body: JSON.stringify(address)
     }).then(res => res.json())
   }
 
-export const deleteSavedResultLocation = (id) => {
-    return fetch(`http://localhost:8000/saved_result_locations/${id}`, {
+export const deleteSavedAddress = (id) => {
+    return fetch(`http://localhost:8000/saved_address/${id}`, {
       method: "DELETE",
       headers: {
         'Authorization': `Token ${localStorage.getItem('mm_token')}`
@@ -18,16 +18,16 @@ export const deleteSavedResultLocation = (id) => {
     })
   }
 
-export const getAllSavedResultLocations = () => {
-    return fetch("http://localhost:8000/saved_result_locations", {
+export const getAllSavedAddresses = () => {
+    return fetch("http://localhost:8000/saved_address", {
       headers: {
         'Authorization': `Token ${localStorage.getItem('mm_token')}`
       }
     }).then(res => res.json())
   }
 
-export const getCurrentUsersSavedLocations = () => {
-    return fetch(`http://localhost:8000/saved_result_locations?user=${localStorage.getItem('mm_id')}`, {
+export const getCurrentUsersSavedAddresses = () => {
+    return fetch(`http://localhost:8000/saved_address?user=${localStorage.getItem('mm_id')}`, {
       headers: {
         'Authorization': `Token ${localStorage.getItem('mm_token')}`
       }

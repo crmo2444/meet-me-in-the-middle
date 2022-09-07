@@ -25,7 +25,7 @@ export const MapHome = () => {
         <div><Map center={center} markerOne={markerOne} markerTwo={markerTwo}/></div>
         <div><MapAutocomplete setCenter={setCenter} setMarkerOne={setMarkerOne} setMarkerTwo={setMarkerTwo}/></div>
         {
-            center.lat !== 39.8283 ? <div><NearbySearch lat={center.lat} lng={center.lng} setNearbyResults={setNearbyResults} nearbyResults={nearbyResults}/></div> : null
+            center.lat !== 39.8283 ? <div><NearbySearch lat={center.lat} lng={center.lng} setNearbyResults={setNearbyResults} nearbyResults={nearbyResults} coordinatesOne={markerOne}/></div> : null
         }
         </section>
 }

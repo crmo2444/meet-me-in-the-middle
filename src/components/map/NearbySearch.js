@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { keys } from "../../Settings";
 import { createSavedResultLocation } from "../managers/SavedResultLocationManager"
 
-export const NearbySearch = ({lat, lng, setNearbyResults, nearbyResults}) => {
+export const NearbySearch = ({lat, lng, setNearbyResults, nearbyResults, coordinatesOne}) => {
 
     let radius = 500; // 1000 = 1km
     let midpoint = {
@@ -69,7 +69,7 @@ export const NearbySearch = ({lat, lng, setNearbyResults, nearbyResults}) => {
                     let location = {
                         name: result.name,
                         coordinate: result.coordinate,
-                        distance: distanceFormula(midpoint, result.coordinate)
+                        distance: distanceFormula(coordinatesOne, result.coordinate)
                     }
                     createSavedResultLocation(location)
                 }}>Save</button>

@@ -11,6 +11,12 @@ export const NavBar = ({ token, setToken }) => {
             <li className="navbar__item">
             <Link className="nav-link" to="/">Home</Link>
             </li>
+            <li className="navbar__item">
+            <Link className="nav-link" to="/saved-locations">Saved Locations</Link>
+            </li>
+            <li className="navbar__item">
+            <Link className="nav-link" to="/saved-addresses">Saved Addresses</Link>
+            </li>
             {
                 token ?
                     <li className="nav-item">
