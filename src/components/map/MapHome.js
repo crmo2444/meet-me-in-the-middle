@@ -5,6 +5,7 @@ import { useLoadScript } from '@react-google-maps/api'
 import { Map } from "./Map.js"
 import { MapAutocomplete } from "./MapAutocomplete.js"
 import { NearbySearch } from "./NearbySearch"
+import { Event } from "../events/Event"
 
 export const MapHome = () => {
     const [ libraries ] = useState(['places']);
@@ -27,5 +28,6 @@ export const MapHome = () => {
         {
             center.lat !== 39.8283 ? <div><NearbySearch lat={center.lat} lng={center.lng} setNearbyResults={setNearbyResults} nearbyResults={nearbyResults} coordinatesOne={markerOne}/></div> : null
         }
+        <div><Event /></div>
         </section>
 }

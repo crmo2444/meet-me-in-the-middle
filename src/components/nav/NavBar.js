@@ -17,6 +17,9 @@ export const NavBar = ({ token, setToken }) => {
             <li className="navbar__item">
             <Link className="nav-link" to="/saved-addresses">Saved Addresses</Link>
             </li>
+            <li className="navbar__item">
+            <Link className="nav-link" to="/events">Events</Link>
+            </li>
             {
                 token ?
                     <li className="nav-item">
